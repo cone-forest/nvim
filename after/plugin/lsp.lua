@@ -1,22 +1,47 @@
-local lsp = require('lsp-zero').preset({})
+local lspconfig = require("lspconfig")
 
--- default vim functionality replaced by lsp
-lsp.on_attach(function(client, bufnr)
+local function on_attach(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("n", "<leader>rf", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
+end
 
-lsp.ensure_installed({
-	'clangd',
-  'cmake',
-	'gopls',
-	'lua_ls',
-	'pyright',
+lspconfig.lua_ls.setup {
+  on_atach = on_attach,
+}
+
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  -- capabilities = capabilities,
+  cmd = {"gopls"},
+  filetypes = {"go", "gomod", "gowork", "gotmpl"},
+  -- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      }
+    }
+  }
+}
+
+lspconfig.pyright.setup({
+  on_attach = on_attach,
+  -- capabilities = capabilities,
+  filetypes = {"python"},
 })
 
-lsp.setup()
+lspconfig.clangd.setup({
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, bufnr)
+  end,
+  -- capabilities = capabilities,
+})
+
