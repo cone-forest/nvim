@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+-- local coq = require('coq')
 
 local function on_attach(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
@@ -38,10 +39,7 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.clangd.setup({
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
+  on_attach = on_attach,
   -- capabilities = capabilities,
 })
 

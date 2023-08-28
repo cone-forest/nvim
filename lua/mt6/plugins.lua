@@ -2,11 +2,9 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.2',
-	  requires = { {'nvim-lua/plenary.nvim'} },
-  }
+  use {'wbthomason/packer.nvim'}
+  use {'nvim-lua/plenary.nvim'}
+  use {'nvim-telescope/telescope.nvim', tag = '0.1.2'}
   use {
 	  "tiagovla/tokyodark.nvim",
 	  as = 'tokyodark',
@@ -19,30 +17,20 @@ return require('packer').startup(function(use)
 	  'nvim-treesitter/nvim-treesitter',
 	  {run = ':TSUpdate'},
   }
-  use{'mbbill/undotree'}
+
+  use {'mbbill/undotree'}
   use {'tpope/vim-fugitive'}
-  use {'ms-jpq/coq_nvim'}
-  use {'ms-jpq/coq.artifacts'}
   use {'neovim/nvim-lspconfig'}
+  use {'hrsh7th/nvim-cmp'}
+  use {'hrsh7th/cmp-nvim-lsp'}
+  use {'hrsh7th/cmp-cmdline'}
+  use {'hrsh7th/cmp-buffer'}
+  use {'hrsh7th/cmp-path'}
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
   use {'jay-babu/mason-nvim-dap.nvim'}
   use {'mfussenegger/nvim-dap'}
   use {'rcarriga/nvim-dap-ui'}
-
--- use {
-	--   'VonHeikemen/lsp-zero.nvim',
-	--   branch = 'v2.x',
-	--   requires = {
-	-- 	  -- LSP Support
-	-- 	  {'neovim/nvim-lspconfig'},             -- Required
-	-- 	  {'williamboman/mason.nvim'},           -- Optional
-	-- 	  {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-	-- 	  -- Autocompletion
-	-- 	  {'hrsh7th/nvim-cmp'},     -- Required
-	-- 	  {'hrsh7th/cmp-nvim-lsp'}, -- Required
-	-- 	  {'L3MON4D3/LuaSnip'},     -- Required
-	--   }
-  -- }
+  use { 'theHamsta/nvim-dap-virtual-text'}
+  use { 'nvim-telescope/telescope-dap.nvim'}
 end)
