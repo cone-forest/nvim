@@ -18,18 +18,56 @@ dap.adapters = {
     command = 'python',
     args = { '-m', 'debugpy.adapter' };
   },
-  lldb = {
-    type = "executable",
-    name = "lldb",
-    command = "lldb",
+  codelldb = {
+    type = "server",
+    port = "${port}",
+    executable = {
+      command = "/usr/bin/codelldb",
+      args = { "--port", "${port}" },
+    },
   },
 }
 
-local cpp_conf = {type = "lldb"}
-dap.configurations.cpp = {cpp_conf}
-dap.configurations.lldb = {cpp_conf}
-
+-- dap.configurations.cpp = {{
+--   name = "Launch",
+--   type = "codelldb",
+--   request = "launch",
+--   program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     cwd = '${workspaceFolder}',
+--     stopOnEntry = false,
+--     args = {},
+-- }}
+dap.configurations.cpp = {
+  {
+    type = "codelldb",
+    request = "launch",
+    program = vim.fn.expand('%:t:r'),
+    args = function ()
+      local argv = {}
+      arg = vim.fn.input(string.format("argv: "))
+      for a in string.gmatch(arg, "%S+") do
+        table.insert(argv, a)
+      end
+      vim.cmd('echo ""')
+      return argv
+    end,
+    cwd = "${workspaceFolder}",
+    -- Uncomment if you want to stop at main
+    stopAtEntry = true,
+    MIMode = "gdb",
+    miDebuggerPath = "/usr/bin/gdb",
+    setupCommands = {
+      {
+        text = "-enable-pretty-printing",
+        description = "enable pretty printing",
+        ignoreFailures = false,
+      },
+    },
+  },
+}
+dap.configurations.c = dap.configurations.cpp
 dap.configurations.python = {{type = "python"}}
 dap.configurations.go = {{type = "go"}}
-dap.configurations.lua = {{type = "lua"}}
 dap.configurations.lua = {{type = "lua"}}

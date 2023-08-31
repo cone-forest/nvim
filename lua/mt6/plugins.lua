@@ -3,6 +3,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use {'wbthomason/packer.nvim'}
+  use {'MunifTanjim/nui.nvim'}
   use {'nvim-lua/plenary.nvim'}
   use {'nvim-telescope/telescope.nvim', tag = '0.1.2'}
   use {
@@ -31,7 +32,8 @@ return require('packer').startup(function(use)
   use {'jay-babu/mason-nvim-dap.nvim'}
   use {'mfussenegger/nvim-dap'}
   use {'rcarriga/nvim-dap-ui'}
-  use { 'theHamsta/nvim-dap-virtual-text'}
-  use { 'nvim-telescope/telescope-dap.nvim'}
+  use {'theHamsta/nvim-dap-virtual-text'}
+  use {'nvim-telescope/telescope-dap.nvim'}
   use {'Civitasv/cmake-tools.nvim'}
+  use {'jackMort/ChatGPT.nvim'}
 end)

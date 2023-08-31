@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>l', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>;', vim.cmd.Ex)
 
 -- move selected lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
