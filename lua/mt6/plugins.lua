@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
   }
 
   use {'mbbill/undotree'}
-  use {'tpope/vim-fugitive'}
   use {'neovim/nvim-lspconfig'}
   use {'hrsh7th/nvim-cmp'}
   use {'hrsh7th/cmp-nvim-lsp'}
@@ -29,8 +28,8 @@ return require('packer').startup(function(use)
   use {'hrsh7th/cmp-path'}
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
-  use {'jay-babu/mason-nvim-dap.nvim'}
   use {'mfussenegger/nvim-dap'}
+  use {'jay-babu/mason-nvim-dap.nvim'}
   use {'rcarriga/nvim-dap-ui'}
   use {'theHamsta/nvim-dap-virtual-text'}
   use {'nvim-telescope/telescope-dap.nvim'}
