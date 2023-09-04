@@ -1,11 +1,6 @@
 local dap = require('dap')
 
-vim.keymap.set('n', '<F4>',
-[[:lua 
-  require('dap').terminate() 
-  require('dapui').close() 
-  require('dap').repl.close()
-<CR>]])
+vim.keymap.set('n', '<F4>', '<cmd> DapTerminate <CR>')
 vim.keymap.set('n', '<F5>', '<cmd> DapContinue <CR>')
 vim.keymap.set('n', '<F10>', '<cmd> DapStepOver <CR>')
 vim.keymap.set('n', '<F11>', '<cmd> DapStepInto <CR>')
@@ -36,7 +31,7 @@ dap.configurations.cpp = {{
     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
   end,
   cwd = '${workspaceFolder}',
-  stopOnEntry = true,
+  stopOnEntry = false,
 }}
 
 dap.configurations.c = dap.configurations.cpp

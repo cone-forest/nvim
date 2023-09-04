@@ -9,9 +9,9 @@ vim.fn.sign_define(
 )
 vim.fn.sign_define(
     "DapBreakpointCondition",
-    { text = "◆", texthl = "", linehl = "debugBreakpoint", numhl = "debugBreakpoint" }
+    { text = "◆", texthl = "", linehl = "", numhl = "debugBreakpoint" }
 )
-vim.fn.sign_define("DapStopped", { text = "▶", texthl = "", linehl = "debugPC", numhl = "debugPC" })
+vim.fn.sign_define("DapStopped", { text = "▶", texthl = "", linehl = "", numhl = "debugPC" })
 dap.defaults.fallback.force_external_terminal = true
 daptext.setup()
 dapui.setup({
@@ -34,5 +34,8 @@ dapui.setup({
         },
     },
   })
+dap.listeners.after.event_initialized.dapui_config = function() dapui.open() end
+dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
 
 telescope.load_extension('dap')

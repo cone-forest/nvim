@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
   use {'MunifTanjim/nui.nvim'}
   use {'nvim-lua/plenary.nvim'}
+  use {'nvim-tree/nvim-web-devicons'}
   use {'nvim-telescope/telescope.nvim', tag = '0.1.2'}
   use {
 	  "tiagovla/tokyodark.nvim",
@@ -35,4 +36,5 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope-dap.nvim'}
   use {'Civitasv/cmake-tools.nvim'}
   use {'jackMort/ChatGPT.nvim'}
+  use {'nvim-lualine/lualine.nvim'}
 end)

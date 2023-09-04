@@ -14,6 +14,7 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', "<leader>b", ':CMakeBuild<CR>')
   vim.keymap.set('n', "<leader>G", ':CMakeGenerate!<CR>')
   vim.keymap.set('n', "<leader>B", ':CMakeBuild!<CR>')
+  vim.keymap.set('n', "<leader>R", ':CMakeRun<CR>')
 end
 
 lspconfig.lua_ls.setup {
