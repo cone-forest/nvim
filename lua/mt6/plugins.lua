@@ -37,4 +37,7 @@ return require('packer').startup(function(use)
   use {'Civitasv/cmake-tools.nvim'}
   use {'jackMort/ChatGPT.nvim'}
   use {'nvim-lualine/lualine.nvim'}
+  use {'kylechui/nvim-surround'}
+  use {'f-person/git-blame.nvim'}
+  use {'folke/trouble.nvim'}
 end)

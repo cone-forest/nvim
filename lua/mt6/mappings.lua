@@ -19,3 +19,17 @@ vim.keymap.set('n', '<leader>Y', '"+Y')
 vim.keymap.set('n', '<leader>p', '"+p')
 vim.keymap.set('v', '<leader>p', '"+p')
 vim.keymap.set('n', '<leader>P', '"+P')
+
+-- trouble plugin
+vim.keymap.set('n', '<leader>t', '<cmd> TroubleToggle <CR>')
+
+-- dap plugin
+vim.keymap.set('n', '<F5>', '<cmd> DapContinue <CR>')
+vim.keymap.set('n', '<F4>', '<cmd> DapTerminate <CR>')
+vim.keymap.set('n', '<F10>', '<cmd> DapStepOver <CR>')
+vim.keymap.set('n', '<F11>', '<cmd> DapStepInto <CR>')
+vim.keymap.set('n', '<F12>', '<cmd> DapStepOut <CR>')
+vim.keymap.set('n', '<F9>', '<cmd> DapToggleBreakpoint <CR>')
+
+-- undotree plugin
+vim.keymap.set('n', '<leader>u', '<cmd> UndotreeToggle <CR>')

@@ -1,12 +1,5 @@
 local dap = require('dap')
 
-vim.keymap.set('n', '<F4>', '<cmd> DapTerminate <CR>')
-vim.keymap.set('n', '<F5>', '<cmd> DapContinue <CR>')
-vim.keymap.set('n', '<F10>', '<cmd> DapStepOver <CR>')
-vim.keymap.set('n', '<F11>', '<cmd> DapStepInto <CR>')
-vim.keymap.set('n', '<F12>', '<cmd> DapStepOut <CR>')
-vim.keymap.set('n', '<F9>', '<cmd> DapToggleBreakpoint <CR>')
-
 dap.adapters = {
   python = {
     type = 'executable';
