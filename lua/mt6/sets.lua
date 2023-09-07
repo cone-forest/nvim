@@ -2,6 +2,7 @@
 vim.g.mapleader = ' '
 
 -- relative line numbers
+vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- indenting
@@ -14,7 +15,8 @@ vim.opt.smartindent = true
 -- backup
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 -- search
 vim.opt.hlsearch = false

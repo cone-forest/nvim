@@ -33,3 +33,18 @@ vim.keymap.set('n', '<F9>', '<cmd> DapToggleBreakpoint <CR>')
 
 -- undotree plugin
 vim.keymap.set('n', '<leader>u', '<cmd> UndotreeToggle <CR>')
+
+-- lazygit plugin
+vim.keymap.set('n', '<leader>l', '<cmd> LazyGit <CR>')
+
+-- harpoon plugin
+vim.keymap.set('n', '<leader>a', ':lua require("harpoon.mark").add_file() <CR>')
+vim.keymap.set('n', '<leader>h', ':lua require("harpoon.ui").toggle_quick_menu() <CR>')
+
+vim.keymap.set('n', '<leader>1', ':lua require("harpoon.ui").nav_file(1) <CR>')
+vim.keymap.set('n', '<leader>2', ':lua require("harpoon.ui").nav_file(2) <CR>')
+vim.keymap.set('n', '<leader>9', ':lua require("harpoon.ui").nav_file(3) <CR>')
+vim.keymap.set('n', '<leader>0', ':lua require("harpoon.ui").nav_file(4) <CR>')
+
+vim.keymap.set('n', '<leader>n', ':lua require("harpoon.ui").nav_next() <CR>')
+vim.keymap.set('n', '<leader>N', ':lua require("harpoon.ui").nav_prev() <CR>')
