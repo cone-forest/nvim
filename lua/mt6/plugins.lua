@@ -58,4 +58,10 @@ return require('packer').startup(function(use)
   -- language specific
   -- cpp
   use {'Civitasv/cmake-tools.nvim'}
+  -- latex
+
+-- LaTeX
+  use { "lervag/vimtex" } -- essential for LaTeX; Vimscript
+  use { "kdheepak/cmp-latex-symbols" }
+  use { "jbyuki/nabla.nvim" } -- show symbols in editor
 end)

@@ -9,8 +9,6 @@ local function on_attach(client, bufnr)
   vim.keymap.set("n", "<leader>rf", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
-  language_specific_mappings(bufnr.filetypes)
 end
 
 lspconfig.lua_ls.setup {
@@ -35,14 +33,4 @@ lspconfig.gopls.setup {
 lspconfig.pyright.setup({
   on_attach = on_attach,
   filetypes = {"python"},
-})
-
-lspconfig.clangd.setup({
-  on_attach = on_attach,
-  on_new_config = function(new_config, new_cwd)
-    local status, cmake = pcall(require, "cmake-tools")
-    if status then
-      cmake.clangd_on_new_config(new_config)
-    end
-  end,
 })
