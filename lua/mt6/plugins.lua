@@ -58,6 +58,11 @@ return require('packer').startup(function(use)
   -- language specific
   -- cpp
   use {'Civitasv/cmake-tools.nvim'}
+  -- rust
+  use {'rust-lang/rust-analyzer'}
+  use {'rust-lang/rust.vim'}
+  use {'simrat39/rust-tools.nvim'}
+  -- use {'saecki/crates.nvim'}
   -- latex
 
 -- LaTeX
