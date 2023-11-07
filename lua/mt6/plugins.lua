@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
   use {'MunifTanjim/nui.nvim'}
   use {'nvim-lua/plenary.nvim'}
   use {'nvim-telescope/telescope.nvim', tag = '0.1.2'}
+  use {'hrsh7th/vim-vsnip'}
 
   use {
 	  'nvim-treesitter/nvim-treesitter',
@@ -33,6 +34,9 @@ return require('packer').startup(function(use)
   use {'theHamsta/nvim-dap-virtual-text'}
   use {'nvim-telescope/telescope-dap.nvim'}
 
+  -- formatting
+  use {'sbdchd/neoformat'}
+
   -- version control
   use {'f-person/git-blame.nvim'}
   use {'kdheepak/lazygit.nvim'}
@@ -47,12 +51,14 @@ return require('packer').startup(function(use)
   use {'nvim-lualine/lualine.nvim'}
   use {'nvim-tree/nvim-web-devicons'}
   use {'goolord/alpha-nvim'}
+  use {'ntpeters/vim-better-whitespace'}
   -- themes
   use {"tiagovla/tokyodark.nvim", as = 'tokyodark'}
   use {'EdenEast/nightfox.nvim', as = 'nightfox'}
 
   -- code editing help
   use {'kylechui/nvim-surround'}
+  use {'KarimElghamry/vim-auto-comment'}
   use {'jackMort/ChatGPT.nvim'}
 
   -- language specific
@@ -63,10 +69,13 @@ return require('packer').startup(function(use)
   use {'rust-lang/rust.vim'}
   use {'simrat39/rust-tools.nvim'}
   -- use {'saecki/crates.nvim'}
-  -- latex
-
--- LaTeX
-  use { "lervag/vimtex" } -- essential for LaTeX; Vimscript
-  use { "kdheepak/cmp-latex-symbols" }
-  use { "jbyuki/nabla.nvim" } -- show symbols in editor
+  -- markdown
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  -- LaTeX
+  use {'lervag/vimtex'} -- essential for LaTeX; Vimscript
+  use {'kdheepak/cmp-latex-symbols'}
+  use {'jbyuki/nabla.nvim'} -- show symbols in editor
 end)
