@@ -78,4 +78,8 @@ return require('packer').startup(function(use)
   use {'lervag/vimtex'} -- essential for LaTeX; Vimscript
   use {'kdheepak/cmp-latex-symbols'}
   use {'jbyuki/nabla.nvim'} -- show symbols in editor
+
+  -- image preview
+  use {'m00qek/baleia.nvim'}
+  use {'doctorfree/asciiart.nvim'}
 end)
