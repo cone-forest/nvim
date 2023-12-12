@@ -80,6 +80,8 @@ return require('packer').startup(function(use)
   use {'jbyuki/nabla.nvim'} -- show symbols in editor
 
   -- image preview
+  -- use {'edluffy/hologram.nvim', rocks = {'magick'}}
+  -- use {'3rd/image.nvim'}
   use {'m00qek/baleia.nvim'}
   use {'doctorfree/asciiart.nvim'}
 end)
