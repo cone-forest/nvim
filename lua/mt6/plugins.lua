@@ -49,12 +49,17 @@ return require('packer').startup(function(use)
 
   -- cosmetic
   use {'nvim-lualine/lualine.nvim'}
+  use {'arkav/lualine-lsp-progress'}
   use {'nvim-tree/nvim-web-devicons'}
   use {'goolord/alpha-nvim'}
   use {'ntpeters/vim-better-whitespace'}
+  use {'xiyaowong/transparent.nvim'}
+  use {'folke/noice.nvim'}
   -- themes
   use {"tiagovla/tokyodark.nvim", as = 'tokyodark'}
   use {'EdenEast/nightfox.nvim', as = 'nightfox'}
+  use {'rose-pine/neovim', as = 'rose-pine' }
+  use {"themercorp/themer.lua",}
 
   -- code editing help
   use {'kylechui/nvim-surround'}
