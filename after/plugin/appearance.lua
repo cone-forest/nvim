@@ -38,11 +38,13 @@ require("noice").setup({
 
 -- theme
 local themes = {
-  'tokyodark',
-  -- 'carbonfox',
-  'themer_rose_pine',
-  'themer_catppuccin',
+  'carbonfox',
   'themer_radium',
+  'themer_nord',
+  'themer_kurai',
+  'themer_shado',
+  'themer_astron',
+  'themer_monokai_vibrant'
 }
 
 local theme = rand_element(themes)
@@ -62,7 +64,7 @@ local config = {
     lualine_b = {'filename'},
     lualine_c = {'lsp_progress'},
     lualine_x = {},
-    lualine_y = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'encoding', 'location'},
     lualine_z = {'branch'},
   },
   inactive_sections = {
